@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { client } from "../../lib/sanity";
 
-const REACT_APP_DOMAIN = "https://www.shopmythrift.store/";
+const REACT_APP_DOMAIN = "https://www.shopmythrift.store";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -81,21 +81,21 @@ export default function Navbar() {
 
           <div className="flex flex-col  items-start mt-8 px-4 space-y-4">
             <a
-              href={`${REACT_APP_DOMAIN}/`}
+              href={`${REACT_APP_DOMAIN}/browse-markets`}
               className="text-base font-roboto border-gray-200 font-medium w-full py-3 border-b text-gray-900"
               onClick={closeMobileMenu}
             >
               Explore our Marketplace
             </a>
             <a
-              href={`${REACT_APP_DOMAIN}/trips`}
+              href={`${REACT_APP_DOMAIN}/vendor-signup`}
               className="text-base font-roboto font-medium border-gray-200 w-full py-3 border-b text-gray-900"
               onClick={closeMobileMenu}
             >
               Sign up as a vendor!
             </a>
             <a
-              href={`${REACT_APP_DOMAIN}/past-trips`}
+              href={`${REACT_APP_DOMAIN}/send-us-feedback`}
               className="text-base font-roboto font-medium border-gray-200 w-full py-3 border-b text-gray-900"
               onClick={closeMobileMenu}
             >

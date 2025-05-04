@@ -76,7 +76,7 @@ export const metadata = {
     title: "My Thrift Blog",
     description:
       "Tap into our world—insider tips, smart thrift shopping guides, exclusive drops, product updates, and more.",
-    images: ["https://blog.shopmythrift.store/favicon.ico"],
+    images: ["https://blog.shopmythrift.store/twitter.png"],
   },
 };
 

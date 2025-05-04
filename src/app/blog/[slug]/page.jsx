@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
     .image(blogPost.mainImage?.asset?.url)
     .url();
 
-  const url = `https://explore.poshretreats.co.uk/blog/${slug}`;
+  const url = `https://blog.shopmythrift.store/blog/${slug}`;
 
   return {
     title: blogPost.title,

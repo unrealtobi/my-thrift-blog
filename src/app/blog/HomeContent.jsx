@@ -104,28 +104,27 @@ export default function HomeContent({ posts, uniqueTags }) {
           The My Thrift Blog
         </h1>
         <div className="text-black">
-
-        <Typewriter
-          onInit={(typewriter) => {
-            typewriter
-              .typeString(
-                "Tap into our world, insider tips, smart thrift shopping guides, exclusive drops, product updates, and more."
-              )
-              .callFunction(() => {
-                // Hide cursor after typing
-                const cursor = document.querySelector(".Typewriter__cursor");
-                if (cursor) cursor.style.display = "none";
-              })
-              .start();
-          }}
-          options={{
-            autoStart: true,
-            loop: false,
-            delay: 30,
-            cursor: "|",
-            wrapperClassName: "text-black", 
-          }}
-        />
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .typeString(
+                  "Tap into our world-insider tips, smart thrift shopping guides, exclusive drops, product updates, and more."
+                )
+                .callFunction(() => {
+                  // Hide cursor after typing
+                  const cursor = document.querySelector(".Typewriter__cursor");
+                  if (cursor) cursor.style.display = "none";
+                })
+                .start();
+            }}
+            options={{
+              autoStart: true,
+              loop: false,
+              delay: 30,
+              cursor: "|",
+              wrapperClassName: "text-black",
+            }}
+          />
         </div>
       </header>
 
@@ -205,7 +204,7 @@ export default function HomeContent({ posts, uniqueTags }) {
                     className="w-full h-[200px] rounded-lg object-cover"
                   />
                   {post.tag && (
-                    <span className="absolute top-4 left-4 bg-[rgba(0,0,0,0.4)] text-white text-sm px-4 py-1 rounded-full backdrop-blur-md shadow-lg">
+                    <span className="absolute top-4 left-4 px-4 py-1 text-white text-sm rounded-full shadow-lg backdrop-blur-md bg-black/5 border border-white/20">
                       {highlightText(post.tag, searchQuery)}
                     </span>
                   )}
