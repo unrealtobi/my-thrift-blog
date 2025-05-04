@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { client } from "../../lib/sanity";
 
-// The domain for your React app
 const REACT_APP_DOMAIN = "https://www.shopmythrift.store/";
 
 export default function Navbar() {
@@ -32,7 +31,7 @@ export default function Navbar() {
     <nav className="bg-white  border-b border-gray-200 fixed w-full z-50">
       <div className="mx-auto px-4 md:px-8 md:h-20 sm:h-20 md:py-5 py-5 flex items-center justify-between h-20">
         {/* Logo Section */}
-        <a href={REACT_APP_DOMAIN}>
+        <Link href="/">
           <Image
             src="/logobg.png"
             alt="Logo"
@@ -40,7 +39,7 @@ export default function Navbar() {
             height={306}
             className="md:h-36 md:w-auto sm:h-36 sm:w-auto cursor-pointer"
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links */}
 
