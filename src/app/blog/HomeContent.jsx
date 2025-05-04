@@ -103,6 +103,8 @@ export default function HomeContent({ posts, uniqueTags }) {
         <h1 className="md:text-6xl text-3xl font-ubuntu font-semibold text-black sm:text-4xl  mb-4">
           The My Thrift Blog
         </h1>
+        <div className="text-black">
+
         <Typewriter
           onInit={(typewriter) => {
             typewriter
@@ -121,8 +123,10 @@ export default function HomeContent({ posts, uniqueTags }) {
             loop: false,
             delay: 30,
             cursor: "|",
+            wrapperClassName: "text-black", 
           }}
         />
+        </div>
       </header>
 
       {/* Search Bar + Suggestive Dropdown */}
