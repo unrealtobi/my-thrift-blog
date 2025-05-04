@@ -1,17 +1,144 @@
+/* 1️⃣ Import everything Tailwind needs in v4 */
 @import "tailwindcss";
 
+/* 2️⃣ Define ALL your design tokens in one @theme block */
+@theme {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-customGreen: #0b4525;
+  --color-customDarkGreen: #08311a;
+  --color-customPink: #f7a49d;
+  --color-customWhite: #ffffff;
+  --color-customBg: #fafffc;
+  --color-lighOrange: #f9dcd6;
+  --color-customGrey: #fafafa;
+  --color-customOrange: #f9531e;
+  --color-lightOrange: #fff7f2;
+  --color-lightBlue: #f5f4fe;
+  --color-customSoftGray: #fafafa;
+  --color-customDeepOrange: #da3a00;
+  --color-customCream: #fcecd3;
+  --color-customBrown: #be7159;
+  --color-customRichBrown: #3e0c00;
+  --color-customGreen: #def2eb;
+  --color-lightGreen: #f2fef2;
+  --color-customPink: #fee4e1;
+  --color-lightPurple: #f9f4ff;
+  --color-textGreen: #388f6e;
+  --color-dotGreen: #9cd8c2;
+  --color-header: #3e0c00;
+
+  /* 👇 Your new font-family tokens */
+  --font-ubuntu: "Ubuntu", sans-serif;
+  --font-bodoni: "Bodoni Moda SC", serif;
+  --font-lato: "Lato", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-playwrite: "playwrite CU", cursive;
+  --font-opensans: "Open Sans", sans-serif;
+
+  --font-roboto: "Roboto", sans-serif;
+  --font-pacifico: "Pacifico", cursive;
+  --font-ubuntu: "Raleway", sans-serif;
+
+  /* Font sizes */
+  --text-10xl: 190px;
+  @keyframes scroll {
+    0%   { transform: translateX(0) }
+    100% { transform: translateX(-50%) }
+  }
+  --animate-scroll: scroll 20s linear infinite;
+  --animate-scroll-mobile: scroll 30s linear infinite;
+
+  /* BOUNCE */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0) }
+    50%      { transform: translateY(-5px) }
+  }
+  --animate-bounce: bounce 1s ease-in-out infinite;
+
+  /* BOUNCE-UP */
+  @keyframes bounce-up {
+    0%   { transform: translateY(100%); opacity: 0 }
+    80%  { transform: translateY(-10px) }
+    100% { transform: translateY(0); opacity: 1 }
+  }
+  --animate-bounce-up: bounce-up 1s ease forwards;
+
+  /* BOUNCE-OUTWARD */
+  @keyframes bounceOutward {
+    0%   { transform: translate(-50%, -50%) scale(0) }
+    60%  { transform: translate(-50%, -50%) scale(1.1) }
+    80%  { transform: translate(-50%, -50%) scale(0.95) }
+    100% { transform: translate(0, 0)       scale(1) }
+  }
+  --animate-bounce-outward: bounceOutward 1s ease-out forwards;
+
+  /* FADE-IN-UP */
+  @keyframes fade-in-up {
+    0%   { transform: translateY(20px); opacity: 0 }
+    100% { transform: translateY(0);     opacity: 1 }
+  }
+  --animate-fade-in-up: fade-in-up 1s ease forwards;
+
+  /* GLOW (text) */
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00 }
+    50%      { text-shadow: 0 0 15px #00ff00, 0 0 20px #00ff00 }
+  }
+  --animate-text-glow: glow 1.5s ease-in-out infinite;
+
+  /* SMOOTH OPENING */
+  @keyframes smoothOpening {
+    0%   { transform: scaleX(0); opacity: 0 }
+    100% { transform: scaleX(1); opacity: 1 }
+  }
+  --animate-smoothOpening: smoothOpening 1s ease-in-out forwards;
+
+  /* Breakpoints */
+  --breakpoint-sm: 768px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-md: 1025px;
+  --breakpoint-lg: 1921px;
+
+  /* Easing curves */
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  /* You can even define custom CSS properties for your keyframes */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  --animate-scroll: scroll 20s linear infinite;
+
+  @keyframes "bounce-up" {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    80% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  --animate-bounce-up: "bounce-up" 1s ease forwards;
+
+  /* Repeat for all of your other custom animations… */
+}
+
+/* 3️⃣ Any other global CSS variables or resets */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -22,5 +149,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto);
 }
