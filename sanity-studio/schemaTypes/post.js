@@ -36,6 +36,13 @@ export default defineType({
       options: {hotspot: true},
       validation: (Rule) => Rule.required().error('Main Image is required.'),
     }),
+    defineField({
+      name: 'appImage',
+      title: 'App Image',
+      type: 'image',
+      options: {hotspot: true},
+      validation: (Rule) => Rule.required().error('Main Image is required.'),
+    }),
 
     defineField({
       name: 'publishedAt',

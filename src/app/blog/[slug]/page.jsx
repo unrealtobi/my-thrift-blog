@@ -3,7 +3,8 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
-
+import { IoIosShare } from "react-icons/io";
+import ShareButton from "@/components/ShareButton";
 // Configure the image URL builder
 const builder = imageUrlBuilder(client);
 
@@ -130,7 +131,6 @@ export default async function BlogPostPage({ params }) {
   return (
     <>
       <div className="px-4 md:px-12 sm:px md:py-32 py-32 bg-white min-h-screen">
-        {/* Blog Header */}
         <div className="mb-12 flex md:flex-row flex-col items-center">
           {blogPost.mainImage?.asset && (
             <div className="relative md:w-[700px] w-full">
@@ -154,23 +154,37 @@ export default async function BlogPostPage({ params }) {
                 .replace(/, /g, " ")}{" "}
               • {blogPost.readTime}
             </p>
+           <div className="flex items-center mt-4">
+
             {blogPost.authorName && (
-              <p className="text-sm text-gray-500 font-roboto italic mt-1">
+              <p className="text-sm text-gray-500 mr-3 font-roboto italic ">
                 By{" "}
                 <span className="font-medium text-customRichBrown">
                   {blogPost.authorName}
                 </span>
               </p>
             )}
+             <ShareButton
+              title={blogPost.title}
+              description={blogPost.description}
+              url={
+                typeof window === "undefined"
+                  ? `https://blog.shopmythrift.store/blog/${slug}`
+                  : window.location.href
+              }
+            />
+           </div>
             <h1 className="md:text-5xl text-customOrange text-3xl font-semibold font-ubuntu mt-2 md:mt-4">
               {blogPost.title}
             </h1>
             <p className="text-gray-700 text-md font-opensans mt-2">
               {blogPost.description}
             </p>
+
+           
+            {/* ————————————— */}
           </div>
         </div>
-
         {/* Blog Body + Sidebar */}
         <div className="md:flex md:gap-24">
           {/* Main Blog Body */}
@@ -208,8 +222,28 @@ export default async function BlogPostPage({ params }) {
                     </a>
                   ),
                 },
-                // Optional: custom block styles
+                // List serializers for bullet & numbered lists
+                list: {
+                  bullet: ({ children }) => (
+                    <ul className="list-disc ml-6 mb-6">{children}</ul>
+                  ),
+                  number: ({ children }) => (
+                    <ol className="list-decimal ml-6 mb-6">{children}</ol>
+                  ),
+                },
+                listItem: {
+                  bullet: ({ children }) => (
+                    <li className="mb-2">{children}</li>
+                  ),
+                  number: ({ children }) => (
+                    <li className="mb-2">{children}</li>
+                  ),
+                },
+                // Optional: custom block styles (headings, blockquote, and paragraphs)
                 block: {
+                  normal: ({ children }) => (
+                    <p className="mb-6 leading-relaxed">{children}</p>
+                  ),
                   h1: ({ children }) => (
                     <h1 className="text-4xl font-bold text-black my-6">
                       {children}
@@ -277,9 +311,7 @@ export default async function BlogPostPage({ params }) {
             </div>
           )}
         </div>
-
         {/* More Blogs Section */}
-
         {/* More Blogs Section */}
         {moreBlogs.length > 2 && (
           <section className="mt-24">
