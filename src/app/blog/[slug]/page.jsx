@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
     `*[_type == "post" && slug.current == $slug][0]{
       title,
       description,
-      mainImage{
+      appImage{
         asset->{
           url
         }
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }) {
 
   // must use a fully qualified URL for og:image
   const image = imageUrlBuilder(client)
-    .image(blogPost.mainImage?.asset?.url)
+    .image(blogPost.appImage?.asset?.url)
     .url();
 
   const url = `https://blog.shopmythrift.store/blog/${slug}`;
