@@ -151,3 +151,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-roboto);
 }
+body.embedded nav,
+body.embedded footer {
+  display: none !important;
+}

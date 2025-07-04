@@ -10,6 +10,7 @@ import {
 import "./globals.css";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import BodyClassController from "@/components/BodyClass";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -93,6 +94,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={fontVars}>
       <body>
+        <BodyClassController />
         <Navbar />
         <main>{children}</main>
         <Footer />
