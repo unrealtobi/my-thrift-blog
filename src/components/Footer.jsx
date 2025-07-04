@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+
 import { RiFacebookFill } from "react-icons/ri";
 import {
   FaTiktok,
@@ -7,8 +10,9 @@ import {
   FaWhatsapp,
   FaTelegram,
 } from "react-icons/fa6";
-
+import { isEmbedded } from "../../lib/isEmbedded";
 const Footer = () => {
+  if (typeof window !== "undefined" && isEmbedded()) return null;
   return (
     <footer className="bg-gray-200 text-black font-poppins border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center md:items-start justify-between text-center md:text-left">
